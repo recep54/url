@@ -1,0 +1,44 @@
+<h1>User#create</h1>
+<p>Find me in app/views/user/create.html.erb</p>
+
+<p>FORMULAIRE 1</p>
+
+<form action="/create" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+    <p>username :
+    <input type="text" name="username"></br>
+    Email : <input type="text" name="email"></br>
+    Bio : <input type="text" name="bio"></br>
+    <input type="submit" name="Envoyer" ></p>
+</form>
+
+
+<p>FORMULAIRE 2</p>
+
+<%= form_tag url_for(action: 'create_post'), method: "post" do %>
+
+  <%= label_tag 'username' %>
+  <%= text_field_tag 'username', @username %>
+  <br /> <br />
+
+  <%= label_tag 'email' %>
+  <%= text_area_tag 'email', @email %>
+  <br /> <br />
+
+  <%= label_tag 'Bio' %>
+  <%= text_field_tag 'bio', @bio %>
+  <br /> <br />
+
+  <%= submit_tag "Create Post" %>
+<% end %>
+
+<p>FORMULAIRE 3</p>
+
+
+<%= form_for @user do |f| %>
+  Username : <%= f.text_field :username%></br>
+  email : <%= f.text_field :email %></br>
+  Bio : <%= f.text_field :bio %></br>
+  <%= f.submit %>
+<% end %>
+
